@@ -1,0 +1,74 @@
+[
+  {
+    "id": "driver_1",
+    "name": "Kwame Asante",
+    "photo": "👨‍✈️",
+    "carType": "Toyota Corolla",
+    "location": "Berekuso",
+    "availability": "available",
+    "contact": "+233 24 123 4567",
+    "whatsapp": "233241234567",
+    "rating": 4.8,
+    "note": "Fast and reliable! Call me anytime chale!"
+  },
+  {
+    "id": "driver_2",
+    "name": "Ama Serwaa",
+    "photo": "👩‍✈️",
+    "carType": "Honda Civic",
+    "location": "Adukrom",
+    "availability": "available",
+    "contact": "+233 20 987 6543",
+    "whatsapp": "233209876543",
+    "rating": 4.9,
+    "note": "Clean car, good music, safe driving!"
+  },
+  {
+    "id": "driver_3",
+    "name": "Kofi Mensah",
+    "photo": "👨‍✈️",
+    "carType": "Nissan Sentra",
+    "location": "Peduase",
+    "availability": "busy",
+    "contact": "+233 55 456 7890",
+    "whatsapp": "233554567890",
+    "rating": 4.6,
+    "note": "I dey around campus 24/7"
+  },
+  {
+    "id": "driver_4",
+    "name": "Abena Osei",
+    "photo": "👩‍✈️",
+    "carType": "Toyota Yaris",
+    "location": "Berekuso",
+    "availability": "available",
+    "contact": "+233 27 234 5678",
+    "whatsapp": "233272345678",
+    "rating": 5.0,
+    "note": "Best rates, friendly service!"
+  },
+  {
+    "id": "driver_5",
+    "name": "Yaw Boateng",
+    "photo": "👨‍✈️",
+    "carType": "Hyundai Elantra",
+    "location": "Adukrom",
+    "availability": "available",
+    "contact": "+233 50 345 6789",
+    "whatsapp": "233503456789",
+    "rating": 4.7,
+    "note": "AC always on point! Cool ride guaranteed"
+  },
+  {
+    "id": "driver_6",
+    "name": "Efya Adomako",
+    "photo": "👩‍✈️",
+    "carType": "Kia Forte",
+    "location": "Berekuso",
+    "availability": "offline",
+    "contact": "+233 24 567 8901",
+    "whatsapp": "233245678901",
+    "rating": 4.5,
+    "note": "Usually available on weekends"
+  }
+]

@@ -1,0 +1,130 @@
+const express = require('express');
+const router = express.Router();
+const Ride = require('../models/Ride');
+
+// Get all rides
+router.get('/', async (req, res) => {
+  try {
+    const rides = await Ride.find({ status: 'active' }).sort({ departureDate: 1, departureTime: 1 });
+    res.json(rides);
+  } catch (error) {
+    console.error('Error fetching rides:', error);
+    res.status(500).json({ error: 'Failed to fetch rides', message: error.message });
+  }
+});
+
+// Create new ride
+router.post('/create', async (req, res) => {
+  try {
+    const { name, contact, pickupLocation, destination, departureTime, departureDate, seatsNeeded, notes } = req.body;
+
+    // Parse seatsNeeded with validation and default to 1
+    const seatsRequested = parseInt(seatsNeeded) || 1;
+
+    // Validate seatsRequested is between 1-4
+    if (seatsRequested < 1 || seatsRequested > 4) {
+      return res.status(400).json({ error: 'Seats needed must be between 1 and 4' });
+    }
+
+    // Calculate available seats: 4 total seats - seats needed by creator
+    const availableSeats = 4 - seatsRequested;
+
+    const newRide = new Ride({
+      name,
+      contact,
+      pickupLocation,
+      destination,
+      departureTime,
+      departureDate,
+      availableSeats,
+      notes,
+      joinedUsers: [],
+      status: 'active',
+    });
+
+    await newRide.save();
+
+    console.log('🚗 New ride posted:', newRide);
+
+    res.json({
+      success: true,
+      message: 'Ride posted successfully!',
+      ride: newRide,
+    });
+  } catch (error) {
+    console.error('Create ride error:', error);
+    res.status(500).json({ error: 'Failed to create ride', message: error.message });
+  }
+});
+
+// Join a ride
+router.post('/:id/join', async (req, res) => {
+  try {
+    const { name, phone, whatsapp, email, seatsNeeded } = req.body;
+    const ride = await Ride.findById(req.params.id);
+
+    if (!ride) {
+      return res.status(404).json({ error: 'Ride not found' });
+    }
+
+    // Parse seatsNeeded as integer
+    const seatsRequested = parseInt(seatsNeeded) || 1;
+
+    // Check if there are enough available seats
+    if (ride.availableSeats <= 0) {
+      return res.status(400).json({ error: 'No available seats' });
+    }
+
+    if (ride.availableSeats < seatsRequested) {
+      return res.status(400).json({
+        error: `Not enough seats available. Only ${ride.availableSeats} seat(s) left, but you requested ${seatsRequested} seat(s).`
+      });
+    }
+
+    // Check if user already joined (by phone number)
+    const alreadyJoined = ride.joinedUsers.some(user => user.phone === phone);
+    if (alreadyJoined) {
+      return res.status(400).json({ error: 'You have already joined this ride' });
+    }
+
+    // Add user with full contact details including seats needed
+    ride.joinedUsers.push({
+      name,
+      phone,
+      whatsapp: whatsapp || phone, // Use phone if WhatsApp not provided
+      email: email || '',
+      seatsNeeded: seatsRequested,
+    });
+    ride.availableSeats -= seatsRequested;
+
+    await ride.save();
+
+    console.log(`🚙 ${name} (${phone}) joined ride ${ride._id} - took ${seatsRequested} seat(s)`);
+
+    res.json({
+      success: true,
+      message: 'Successfully joined the ride!',
+      ride,
+    });
+  } catch (error) {
+    console.error('Join ride error:', error);
+    res.status(500).json({ error: 'Failed to join ride', message: error.message });
+  }
+});
+
+// Delete a ride
+router.delete('/:id', async (req, res) => {
+  try {
+    await Ride.findByIdAndDelete(req.params.id);
+
+    res.json({
+      success: true,
+      message: 'Ride deleted successfully',
+    });
+  } catch (error) {
+    console.error('Delete ride error:', error);
+    res.status(500).json({ error: 'Failed to delete ride', message: error.message });
+  }
+});
+
+module.exports = router;

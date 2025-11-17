@@ -1,0 +1,40 @@
+{
+  "name": "the-ashway",
+  "version": "1.0.0",
+  "description": "Community platform for Ashesi University connecting students with local services",
+  "main": "backend/server.js",
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "nodemon backend/server.js",
+    "client": "cd frontend && npm start",
+    "install-backend": "cd backend && npm install",
+    "install-frontend": "cd frontend && npm install",
+    "install-all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "build-frontend": "cd frontend && npm run build",
+    "build": "npm run install-backend && npm run install-frontend && npm run build-frontend",
+    "start": "cd backend && node server.js"
+  },
+  "keywords": [
+    "ashesi",
+    "ghana",
+    "community",
+    "delivery",
+    "carpooling"
+  ],
+  "author": "The Ashway Team",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.19.2",
+    "nodemailer": "^6.9.7"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "nodemon": "^3.0.2"
+  }
+}
