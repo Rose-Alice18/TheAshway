@@ -18,6 +18,7 @@ dist/
 npm-debug.log*
 logs/
 
+
 # OS files
 .DS_Store
 Thumbs.db
@@ -31,3 +32,10 @@ Thumbs.db
 # Misc
 .cache/
 coverage/
+
+# Claude Code
+.claude/
+
+#some files
+PROJECT_SUMMARY.md
+FEATURES.md
