@@ -41,7 +41,7 @@ if (process.env.NODE_ENV === 'production') {
   // Welcome route for development
   app.get('/', (req, res) => {
     res.json({
-      message: 'Welcome to The Ashway API! 🇬🇭',
+      message: 'Welcome to Perpway API! ✨',
       endpoints: {
         drivers: '/api/drivers',
         vendors: '/api/vendors',
@@ -65,6 +65,6 @@ app.use((err, req, res, next) => {
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
-  console.log(`🚀 The Ashway server is running on port ${PORT}`);
+  console.log(`🚀 Perpway server is running on port ${PORT}`);
   console.log(`🌍 Visit http://localhost:${PORT}`);
 });

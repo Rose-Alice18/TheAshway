@@ -7,7 +7,7 @@ import DriverFinder from './pages/DriverFinder';
 import Delivery from './pages/Delivery';
 import ServiceHub from './pages/ServiceHub';
 import RidePairing from './pages/RidePairing';
-import AdminLogin from './pages/AdminLogin';
+import SignIn from './pages/SignIn';
 import AdminDashboard from './pages/AdminDashboard';
 
 function App() {
@@ -22,7 +22,8 @@ function App() {
             <Route path="/delivery" element={<Delivery />} />
             <Route path="/services" element={<ServiceHub />} />
             <Route path="/rides" element={<RidePairing />} />
-            <Route path="/admin" element={<AdminLogin />} />
+            <Route path="/signin" element={<SignIn />} />
+            <Route path="/admin" element={<SignIn />} />
             <Route path="/admin/dashboard" element={<AdminDashboard />} />
           </Routes>
         </main>

@@ -15,15 +15,16 @@ const AdminDashboard = () => {
 
   // Check authentication on component mount
   useEffect(() => {
-    const isAuthenticated = localStorage.getItem('adminAuthenticated');
-    const authTime = localStorage.getItem('adminAuthTime');
+    const isAuthenticated = localStorage.getItem('userAuthenticated');
+    const userRole = localStorage.getItem('userRole');
+    const authTime = localStorage.getItem('authTime');
 
-    // Check if authenticated and session hasn't expired (24 hours)
-    const isSessionValid = isAuthenticated && authTime &&
+    // Check if authenticated, is admin, and session hasn't expired (24 hours)
+    const isSessionValid = isAuthenticated && userRole === 'admin' && authTime &&
       (Date.now() - parseInt(authTime)) < 24 * 60 * 60 * 1000;
 
     if (!isSessionValid) {
-      navigate('/admin');
+      navigate('/signin');
     }
   }, [navigate]);
 
@@ -135,9 +136,12 @@ const AdminDashboard = () => {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('adminAuthenticated');
-    localStorage.removeItem('adminAuthTime');
-    navigate('/admin');
+    localStorage.removeItem('userAuthenticated');
+    localStorage.removeItem('userRole');
+    localStorage.removeItem('userEmail');
+    localStorage.removeItem('userName');
+    localStorage.removeItem('authTime');
+    navigate('/signin');
   };
 
   return (

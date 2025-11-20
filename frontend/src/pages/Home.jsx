@@ -55,8 +55,8 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-ghana-red via-ghana-yellow to-ghana-green py-20 px-4">
-        <div className="absolute inset-0 bg-black/40"></div>
+      <section className="relative bg-gradient-to-br from-indigo-600 via-purple-600 to-fuchsia-600 py-20 px-4">
+        <div className="absolute inset-0 bg-black/30"></div>
         <div className="relative max-w-7xl mx-auto text-center text-white">
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
@@ -64,7 +64,7 @@ const Home = () => {
             transition={{ duration: 0.5 }}
           >
             <h1 className="font-display text-5xl md:text-7xl font-bold mb-6">
-              Welcome to The Ashway! 🇬🇭
+              Welcome to Perpway! ✨
             </h1>
             <p className="text-xl md:text-2xl mb-4 font-medium">
               Your Ashesi Community Hub
@@ -149,7 +149,7 @@ const Home = () => {
             viewport={{ once: true }}
           >
             <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
-              Join the Ashway Community! 🎉
+              Join the Perpway Community! 🎉
             </h2>
             <p className="text-lg mb-8 opacity-90">
               Whether you dey look for ride, need delivery, or want connect with local vendors,
