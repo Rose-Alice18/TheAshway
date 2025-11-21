@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import Logo from './Logo';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,7 +13,7 @@ const Navbar = () => {
     { name: 'Delivery', path: '/delivery', emoji: '📦' },
     { name: 'Services', path: '/services', emoji: '🛍️' },
     { name: 'Ride Pairing', path: '/rides', emoji: '🚙' },
-    { name: 'Admin', path: '/admin', emoji: '🛠️' },
+    // Admin removed from navbar - access directly via /admin URL
   ];
 
   const isActive = (path) => location.pathname === path;
@@ -22,17 +23,8 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <motion.div
-              whileHover={{ rotate: 360 }}
-              transition={{ duration: 0.5 }}
-              className="text-3xl"
-            >
-              🇬🇭
-            </motion.div>
-            <span className="font-display text-2xl font-bold bg-gradient-to-r from-ghana-red via-ghana-yellow to-ghana-green bg-clip-text text-transparent">
-              The Ashway
-            </span>
+          <Link to="/" className="flex items-center">
+            <Logo size="medium" animated={true} />
           </Link>
 
           {/* Desktop Menu */}
