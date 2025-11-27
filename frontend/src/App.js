@@ -9,11 +9,15 @@ import ServiceHub from './pages/ServiceHub';
 import RidePairing from './pages/RidePairing';
 import SignIn from './pages/SignIn';
 import AdminDashboard from './pages/AdminDashboard';
+import About from './pages/About';
+import Contact from './pages/Contact';
+import FAQ from './pages/FAQ';
+import Terms from './pages/Terms';
 
 function App() {
   return (
     <Router>
-      <div className="flex flex-col min-h-screen">
+      <div className="flex flex-col min-h-screen bg-white dark:bg-[#0f172a] transition-colors duration-300">
         <Navbar />
         <main className="flex-grow">
           <Routes>
@@ -25,6 +29,10 @@ function App() {
             <Route path="/signin" element={<SignIn />} />
             <Route path="/admin" element={<SignIn />} />
             <Route path="/admin/dashboard" element={<AdminDashboard />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/faq" element={<FAQ />} />
+            <Route path="/terms" element={<Terms />} />
           </Routes>
         </main>
         <Footer />

@@ -84,7 +84,7 @@ const SignIn = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-100 via-purple-100 to-fuchsia-100 flex items-center justify-center px-4 py-12">
+    <div className="min-h-screen bg-gradient-to-br from-ghana-red/10 via-ghana-yellow/20 to-ghana-green/10 flex items-center justify-center px-4 py-12">
       <motion.div
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
@@ -99,18 +99,26 @@ const SignIn = () => {
           className="flex justify-center mb-6"
         >
           <div className="flex items-center gap-3">
-            <svg width="50" height="50" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M20 2L35 12V28L20 38L5 28V12L20 2Z" fill="url(#perpGradient)" stroke="#4F46E5" strokeWidth="2"/>
-              <path d="M20 10L28 15V25L20 30L12 25V15L20 10Z" fill="white" fillOpacity="0.3"/>
+            <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
               <defs>
-                <linearGradient id="perpGradient" x1="5" y1="2" x2="35" y2="38" gradientUnits="userSpaceOnUse">
-                  <stop stopColor="#6366F1"/>
-                  <stop offset="0.5" stopColor="#8B5CF6"/>
-                  <stop offset="1" stopColor="#A855F7"/>
+                <linearGradient id="ghanaGradientSignIn" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#CE1126" />
+                  <stop offset="50%" stopColor="#FCD116" />
+                  <stop offset="100%" stopColor="#006B3F" />
                 </linearGradient>
+                <filter id="shadowSignIn" x="-20%" y="-20%" width="140%" height="140%">
+                  <feDropShadow dx="0" dy="1" stdDeviation="2" floodOpacity="0.15"/>
+                </filter>
               </defs>
+              <rect x="3" y="3" width="44" height="44" rx="11" fill="url(#ghanaGradientSignIn)" filter="url(#shadowSignIn)"/>
+              <g fill="white">
+                <rect x="13" y="12" width="4.5" height="26" rx="2"/>
+                <path d="M 17.5 14.5 L 28 14.5 C 31.5 14.5, 34 17, 34 20.5 C 34 24, 31.5 26.5, 28 26.5 L 17.5 26.5 Z" />
+                <rect x="26" y="18" width="11" height="4.5" rx="1"/>
+                <path d="M 34 16 L 39 20.5 L 34 25 Z"/>
+              </g>
             </svg>
-            <span className="font-display text-3xl font-bold bg-gradient-to-r from-indigo-600 via-purple-600 to-fuchsia-600 bg-clip-text text-transparent">
+            <span className="font-display text-3xl font-bold bg-gradient-to-r from-ghana-red via-ghana-yellow to-ghana-green bg-clip-text text-transparent">
               Perpway
             </span>
           </div>
@@ -131,7 +139,7 @@ const SignIn = () => {
             }}
             className={`flex-1 py-3 px-6 rounded-lg font-semibold transition-all ${
               activeTab === 'signin'
-                ? 'bg-white text-indigo-600 shadow-md'
+                ? 'bg-white text-ashesi-primary shadow-md'
                 : 'text-gray-600 hover:text-gray-900'
             }`}
           >
@@ -145,7 +153,7 @@ const SignIn = () => {
             }}
             className={`flex-1 py-3 px-6 rounded-lg font-semibold transition-all ${
               activeTab === 'signup'
-                ? 'bg-white text-indigo-600 shadow-md'
+                ? 'bg-white text-ghana-red shadow-md'
                 : 'text-gray-600 hover:text-gray-900'
             }`}
           >
@@ -191,7 +199,7 @@ const SignIn = () => {
                     setError('');
                   }}
                   placeholder="you@example.com"
-                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:border-indigo-500 transition-colors"
+                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:border-ghana-green transition-colors"
                   required
                 />
               </div>
@@ -208,7 +216,7 @@ const SignIn = () => {
                     setError('');
                   }}
                   placeholder="Enter your password"
-                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:border-indigo-500 transition-colors"
+                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:border-ghana-green transition-colors"
                   required
                 />
               </div>
@@ -239,13 +247,13 @@ const SignIn = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 type="submit"
-                className="w-full bg-gradient-to-r from-indigo-600 via-purple-600 to-fuchsia-600 text-white font-bold py-4 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all"
+                className="w-full bg-gradient-to-r from-ghana-red via-ghana-yellow to-ghana-green text-white font-bold py-4 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all"
               >
                 Sign In 🚀
               </motion.button>
 
               <div className="text-center mt-4 text-sm text-gray-600">
-                <p>Admin? Use <span className="font-semibold text-indigo-600">admin@perpway.com</span></p>
+                <p>Admin? Use <span className="font-semibold text-ashesi-primary">admin@perpway.com</span></p>
               </div>
             </form>
           ) : (
@@ -263,7 +271,7 @@ const SignIn = () => {
                     setError('');
                   }}
                   placeholder="John Doe"
-                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:border-indigo-500 transition-colors"
+                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:border-ghana-green transition-colors"
                   required
                 />
               </div>
@@ -280,7 +288,7 @@ const SignIn = () => {
                     setError('');
                   }}
                   placeholder="you@example.com"
-                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:border-indigo-500 transition-colors"
+                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:border-ghana-green transition-colors"
                   required
                 />
               </div>
@@ -297,7 +305,7 @@ const SignIn = () => {
                     setError('');
                   }}
                   placeholder="At least 6 characters"
-                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:border-indigo-500 transition-colors"
+                  className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:border-ghana-green transition-colors"
                   required
                 />
               </div>
@@ -328,7 +336,7 @@ const SignIn = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 type="submit"
-                className="w-full bg-gradient-to-r from-indigo-600 via-purple-600 to-fuchsia-600 text-white font-bold py-4 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all"
+                className="w-full bg-gradient-to-r from-ghana-red via-ghana-yellow to-ghana-green text-white font-bold py-4 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all"
               >
                 Create Account 🎉
               </motion.button>
