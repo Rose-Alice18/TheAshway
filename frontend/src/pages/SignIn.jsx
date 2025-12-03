@@ -98,27 +98,13 @@ const SignIn = () => {
           transition={{ delay: 0.1 }}
           className="flex justify-center mb-6"
         >
-          <div className="flex items-center gap-3">
-            <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="ghanaGradientSignIn" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#CE1126" />
-                  <stop offset="50%" stopColor="#FCD116" />
-                  <stop offset="100%" stopColor="#006B3F" />
-                </linearGradient>
-                <filter id="shadowSignIn" x="-20%" y="-20%" width="140%" height="140%">
-                  <feDropShadow dx="0" dy="1" stdDeviation="2" floodOpacity="0.15"/>
-                </filter>
-              </defs>
-              <rect x="3" y="3" width="44" height="44" rx="11" fill="url(#ghanaGradientSignIn)" filter="url(#shadowSignIn)"/>
-              <g fill="white">
-                <rect x="13" y="12" width="4.5" height="26" rx="2"/>
-                <path d="M 17.5 14.5 L 28 14.5 C 31.5 14.5, 34 17, 34 20.5 C 34 24, 31.5 26.5, 28 26.5 L 17.5 26.5 Z" />
-                <rect x="26" y="18" width="11" height="4.5" rx="1"/>
-                <path d="M 34 16 L 39 20.5 L 34 25 Z"/>
-              </g>
-            </svg>
-            <span className="font-display text-3xl font-bold bg-gradient-to-r from-ghana-red via-ghana-yellow to-ghana-green bg-clip-text text-transparent">
+          <div className="flex flex-col items-center gap-2">
+            <img
+              src="/geesh.png"
+              alt="Perpway Logo"
+              className="w-20 h-20 object-contain rounded-xl shadow-lg"
+            />
+            <span className="font-display text-2xl font-bold bg-gradient-to-r from-ghana-red via-ghana-yellow to-ghana-green bg-clip-text text-transparent">
               Perpway
             </span>
           </div>
@@ -251,10 +237,6 @@ const SignIn = () => {
               >
                 Sign In 🚀
               </motion.button>
-
-              <div className="text-center mt-4 text-sm text-gray-600">
-                <p>Admin? Use <span className="font-semibold text-ashesi-primary">admin@perpway.com</span></p>
-              </div>
             </form>
           ) : (
             // Sign Up Form
